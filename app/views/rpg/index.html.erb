@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row mt-3">
+        <div class="mx-2">
+            <p>Your Gold: <%= session[:gold] %></p>
+        </div>
+        <div class="col-3">
+            <div class="border border-dark rounded text-center m-2 p-4">
+                <h4>Farm</h4>
+                <p>(earns 10 - 20 golds)</p>
+                <a href="farm" class="btn btn-success">Find Gold!</a>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="border border-dark rounded text-center m-2 p-4">
+                <h4>Cave</h4>
+                <p>(earns 5 - 10 golds)</p>
+                <a href="cave" class="btn btn-success">Find Gold!</a>
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="border border-dark rounded text-center m-2 p-4">
+                <h4>House</h4>
+                <p>(earns 2 - 5 golds)</p>
+                <a href="house" class="btn btn-success">Find Gold!</a>
+
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="border border-dark rounded text-center m-2 p-4">
+                <h4>Casino</h4>
+                <p>(earns/takes 50 golds)</p>
+                <a href="casino" class="btn btn-success">Find Gold!</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="m-2">
+                <p>Activities:</p>
+                <div class="activities border border-dark rounded text-start p-3">
+                <%  if session[:activities] != nil
+                        session[:activities].each do |activity| 
+                            if activity["type"] == "earn" %>
+                                <p class="text-success fw-bold"><%= activity["text"] %></p>
+                <%          else %>
+                                <p class="text-danger fw-bold"><%= activity["text"] %></p>
+                <%          end
+                        end
+                    end %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
